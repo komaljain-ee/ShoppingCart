@@ -12,7 +12,12 @@
     "react-dom": "^15.0.2",
     "react-router": "2.4.1",
     "lodash": "4.12.0",
-    "isomorphic-fetch": "^2.1.1"
+    "isomorphic-fetch": "^2.1.1",
+    "react-redux": "^4.2.1",
+    "react-router-redux": "^4.0.0-rc.1",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "redux": "3.5.2",
+    "redux-thunk": "2.1.0"
   },
   "devDependencies": {
     "http-server": "^0.8.5",
@@ -27,6 +32,7 @@
     "mocha": "2.4.5",
     "react-addons-test-utils": "^15.0.2",
     "webpack": ">=1.12.14",
-    "xunit-file": "0.0.9"
+    "xunit-file": "0.0.9",
+    "redux-mock-store": "1.0.2"
   }
 }
