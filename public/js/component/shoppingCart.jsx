@@ -1,16 +1,30 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import AddItem from './addItem';
+import {removeItem} from './../actions/cartActions';
 
-const ShoppingCart = ({items})=>  (
+const ShoppingCart = ({items, removeItem})=>  (
             <div>
-                <ul>
-                    {items.map((item) => {
-                        return <li key={item.id}>
-                            <span>{item.name}</span>
-                            <button>Add</button>
-                        </li>
-                    })}
-                </ul>
+              <AddItem/>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Sub total</th>
+                  <th></th>
+                </tr>
+                    {items.map((item) => (
+                        <tr key={item.product.id}>
+                            <td>{item.product.name}</td>
+                            <td>{item.product.price}</td>
+                            <td>{item.quantity}</td>
+                            <td>{item.quantity * item.product.price}</td>
+                            <td><button onClick={()=>removeItem(item)}>Remove</button></td>
+                        </tr>
+                    ))}
+
+                </table>
             </div>
         );
 
@@ -23,9 +37,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
+      removeItem: (item) => {
+        dispatch(removeItem(item));
+      }
     }
 };
 
 
-export default connect(mapStateToProps)(ShoppingCart)
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart)

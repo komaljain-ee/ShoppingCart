@@ -4,6 +4,9 @@ module.exports = {
         path: "./public/",
         filename: "bundle.js"
     },
+    resolve: {
+      extensions: ["",".js", ".jsx"]
+    },
     devtool: 'source-map',
     module: {
         loaders: [
